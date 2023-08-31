@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1EZAg4JKN/b36LDW/Iyp/FNAqJmJN0eLycg8WaJJVdeZ9FKk/CT9Xyyib4VUKfL2YkM/2quWbrGZE93QLvBDJQ==",
+  "dgSpecHash": "ySh1cMxG8AWjB1imUyp+3Gsjkzo6uge82yB+VXbYWm1iNKcbfzZcKg1SK8TkVcwmFpMbVfPW0+rY3n6A6gR7+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Área de Trabalho\\CP THIAGO\\CheckPoint\\CheckPoint\\CheckPoint.csproj",
+  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Área de Trabalho\\Cp1cshapEmployee\\CheckPoint\\CheckPoint\\CheckPoint.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",

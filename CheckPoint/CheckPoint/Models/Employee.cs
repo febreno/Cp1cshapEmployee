@@ -1,13 +1,14 @@
 ﻿using CheckPoint.Enums;
+using CheckPoint.Interfaces;
 
 namespace CheckPoint.Models
 {
-    public abstract class Employee
+    public abstract class Employee : IEmployee
     {
-        protected int RegistryNumber { get; set; }
-        protected string Name { get; set; }
-        protected Gender Gender { get; set; }
-        protected EmployeeType EmployeeType { get; set; }
+        internal int RegistryNumber { get; set; }
+        internal string Name { get; set; }
+        internal Gender Gender { get; set; }
+        internal EmployeeType EmployeeType { get; set; }
         protected Employee(int registryNumber, string name, Gender gender, EmployeeType employeeType)
         {
             this.RegistryNumber = registryNumber;
