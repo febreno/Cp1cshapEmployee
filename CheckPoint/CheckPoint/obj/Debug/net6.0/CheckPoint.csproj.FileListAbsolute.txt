@@ -43,3 +43,18 @@ C:\Users\felip\OneDrive\Área de Trabalho\CP THIAGO\CheckPoint\CheckPoint\obj\De
 C:\Users\felip\OneDrive\Área de Trabalho\CP THIAGO\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.pdb
 C:\Users\felip\OneDrive\Área de Trabalho\CP THIAGO\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.genruntimeconfig.cache
 C:\Users\felip\OneDrive\Área de Trabalho\CP THIAGO\CheckPoint\CheckPoint\obj\Debug\net6.0\ref\CheckPoint.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.csproj.AssemblyReference.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.AssemblyInfoInputs.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.AssemblyInfo.cs
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.csproj.CoreCompileInputs.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\refint\CheckPoint.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.pdb
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\bin\Debug\net6.0\CheckPoint.exe
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\bin\Debug\net6.0\CheckPoint.deps.json
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\bin\Debug\net6.0\CheckPoint.runtimeconfig.json
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\bin\Debug\net6.0\CheckPoint.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\bin\Debug\net6.0\CheckPoint.pdb
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\CheckPoint.genruntimeconfig.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Cp1cshapEmployee\CheckPoint\CheckPoint\obj\Debug\net6.0\ref\CheckPoint.dll

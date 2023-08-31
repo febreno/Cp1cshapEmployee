@@ -1,17 +1,28 @@
 ﻿using CheckPoint.Enums;
+using CheckPoint.Exceptions;
+using CheckPoint.Interfaces;
 
 namespace CheckPoint.Models
 {
-    public class PJEmployee : Employee
+    public class PjEmployee : Employee
     {
-        private decimal HourValue { get; set; }
-        private int ContractedHours { get; set; }
-        private int ExtraHours { get; set; }
-        private string CnpjCompany { get; set; } = "00.000.000/0000-00";
+        internal decimal HourValue { get; set; }
+        internal int ContractedHours { get; set; }
+        internal int ExtraHours { get; set; }
+        internal string CnpjCompany { get; set; } = "00.000.000/0000-00";
 
-        public PJEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal hourValue, int contractedHours, int extraHours, string cnpjCompany)
+        public PjEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal hourValue, int contractedHours, int extraHours, string cnpjCompany)
             : base(registryNumber, name, gender, employeeType) // construtor by class base
         {
+
+            if (hourValue < 0 || contractedHours < 0 || extraHours < 0)
+            {
+                throw new NegativeValueException($"NegativeValueException: {HourValue} || {ContractedHours} || {ExtraHours}");
+            }
+            this.RegistryNumber = registryNumber;
+            this.Name = name;
+            this.Gender = gender;
+            this.EmployeeType = employeeType;
             this.HourValue = hourValue;
             this.ContractedHours = contractedHours;
             this.ExtraHours = extraHours;
@@ -20,6 +31,10 @@ namespace CheckPoint.Models
 
         public override decimal CalcPerMonth()
         {
+            if (HourValue < 0 || ContractedHours < 0 || ExtraHours < 0)
+            {
+                throw new NegativeValueException($"NegativeValueException: {HourValue} || {ContractedHours} || {ExtraHours}");
+            }
             //return (HourValue * ExtraHours) + (HourValue * ExtraHours);
             return HourValue * (ContractedHours + ExtraHours);
         }

@@ -1,16 +1,21 @@
 ﻿using CheckPoint.Enums;
+using CheckPoint.Exceptions;
+using CheckPoint.Interfaces;
 using System.Xml.Linq;
 
 namespace CheckPoint.Models
 {
-    public class CLTEmployee : Employee
+    public class CltEmployee : Employee, IEmployee
     {
-        private decimal Salary { get; set; }
-        private bool TrustPosition { get; set; }
+        internal decimal Salary { get; set; }
+        internal bool TrustPosition { get; set; }
 
-        public CLTEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal salary, bool trustPosition)
+        public CltEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal salary, bool trustPosition)
             : base(registryNumber, name, gender, employeeType)
         {
+            if (salary < 0)
+                throw new NegativeValueException(salary);
+
             this.RegistryNumber = registryNumber;
             this.Name = name;
             this.Gender = gender;
@@ -20,6 +25,8 @@ namespace CheckPoint.Models
         }
         public override decimal CalcPerMonth()
         {
+            if (Salary < 0)
+                throw new NegativeValueException(Salary);
             decimal cost = Salary
                 + Salary * 0.1111m  // Fração de férias
                 + Salary * 0.0833m  // Fração de 13º salário
