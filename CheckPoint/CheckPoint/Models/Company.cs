@@ -66,7 +66,7 @@ namespace CheckPoint.Models
                     Console.WriteLine($"Gender: {e.Gender}");
                     Console.WriteLine($"EmployeeType: {e.EmployeeType}");
 
-                    Console.WriteLine($"ExtraHours: {clt.Salary}");
+                    Console.WriteLine($"Salary: {clt.Salary}");
                     Console.WriteLine($"TrustPosition: {clt.TrustPosition}\n");
                 }
 
@@ -78,12 +78,16 @@ namespace CheckPoint.Models
 
             foreach (var e in Employees.Where(x => x.EmployeeType == EmployeeType.Clt))
             {
-                Console.WriteLine($"Register: {e.RegistryNumber}");
-                Console.WriteLine($"Name: {e.Name}");
-                Console.WriteLine($"Gender: {e.Gender}");
-                Console.WriteLine($"EmployeeType: {e.EmployeeType}");
-                Console.WriteLine($"ExtraHours: {e.CalcPerMonth()}");
-                Console.WriteLine($"ExtraHours: {e.AddPercent(10)}\n");
+                if (e is CltEmployee clt)
+                {
+                    Console.WriteLine($"Register: {e.RegistryNumber}");
+                    Console.WriteLine($"Name: {e.Name}");
+                    Console.WriteLine($"Gender: {e.Gender}");
+                    Console.WriteLine($"EmployeeType: {e.EmployeeType}");
+
+                    Console.WriteLine($"Salary: {clt.Salary}");
+                    Console.WriteLine($"TrustPosition: {clt.TrustPosition}\n");
+                }
 
                 typeAccount = e.EmployeeType;
             }

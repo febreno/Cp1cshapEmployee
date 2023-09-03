@@ -6,12 +6,12 @@ namespace CheckPoint.Models
 {
     public class PjEmployee : Employee
     {
-        internal decimal HourValue { get; set; }
-        internal int ContractedHours { get; set; }
-        internal int ExtraHours { get; set; }
-        internal string CnpjCompany { get; set; } = "00.000.000/0000-00";
+        protected internal decimal HourValue { get; set; }
+        protected internal int ContractedHours { get; set; }
+        protected internal int ExtraHours { get; set; }
+        protected internal string CnpjCompany { get; set; } = "00.000.000/0000-00";
 
-        public PjEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal hourValue, int contractedHours, int extraHours, string cnpjCompany)
+        protected internal PjEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal hourValue, int contractedHours, int extraHours, string cnpjCompany)
             : base(registryNumber, name, gender, employeeType) // construtor by class base
         {
 

@@ -7,10 +7,10 @@ namespace CheckPoint.Models
 {
     public class CltEmployee : Employee, IEmployee
     {
-        internal decimal Salary { get; set; }
-        internal bool TrustPosition { get; set; }
+        protected internal decimal Salary { get; set; }
+        protected internal bool TrustPosition { get; set; }
 
-        public CltEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal salary, bool trustPosition)
+        protected internal CltEmployee(int registryNumber, string name, Gender gender, EmployeeType employeeType, decimal salary, bool trustPosition)
             : base(registryNumber, name, gender, employeeType)
         {
             if (salary < 0)
