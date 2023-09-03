@@ -5,11 +5,11 @@ namespace CheckPoint.Models
 {
     public abstract class Employee : IEmployee
     {
-        internal int RegistryNumber { get; set; }
-        internal string Name { get; set; }
-        internal Gender Gender { get; set; }
-        internal EmployeeType EmployeeType { get; set; }
-        protected Employee(int registryNumber, string name, Gender gender, EmployeeType employeeType)
+        protected internal int RegistryNumber { get; set; }
+        protected internal string Name { get; set; }
+        protected internal Gender Gender { get; set; }
+        protected internal EmployeeType EmployeeType { get; set; }
+        protected internal Employee(int registryNumber, string name, Gender gender, EmployeeType employeeType)
         {
             this.RegistryNumber = registryNumber;
             this.Name = name;
