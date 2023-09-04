@@ -34,8 +34,8 @@ namespace CheckPoint.Models
                 + Salary * 0.04m    // FGTS/Provisão de multa para rescisão
                 + Salary * 0.0793m; // Previdenciário
 
-            if (TrustPosition)//cargo de confiança = true
-                cost += 1000m;
+            //if (TrustPosition)//cargo de confiança = true
+                //cost += 1000m;
 
             return cost;
         }
