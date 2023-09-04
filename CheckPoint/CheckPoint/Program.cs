@@ -20,7 +20,7 @@ namespace EmpresaFuncionarios
                 while (opcao != 10)
                 {
                     Console.WriteLine("Menu:");
-                    Console.WriteLine("1 - Cadastro autoático");
+                    Console.WriteLine("1 - Cadastro automático");
                     Console.WriteLine("2 - Exibir funcionários");
                     Console.WriteLine("3 - Exibir funcionários CLT");
                     Console.WriteLine("4 - Exibir funcionários PJ");
@@ -31,6 +31,9 @@ namespace EmpresaFuncionarios
                     Console.WriteLine("9 - Exibir custo mensal de funcionário");
                     Console.WriteLine("10 - Sair \n");
 
+                    
+                    
+                    
                     opcao = int.Parse(Console.ReadLine());
 
                     switch (opcao)
@@ -48,19 +51,19 @@ namespace EmpresaFuncionarios
                             company.ShowAllPjEmployees();
                             break;
                         case 5:
-                            company.ShowMonthlyCostofEmployees();
+                            company.ShowMonthlyCostfEmployees();
                             break;
                         case 6:
-                            company.IncreaseCostCltEmployee();//7
+                            company.IncreaseCostCltEmployee();
                             break;
                         case 7:
-                            company.IncreaseCostPjEmployee();//8
+                            company.IncreaseCostPjEmployee();
                             break;
                         case 8:
-                            company.SerachPjEmployeeByRegisterNumber();//9
+                            company.SerachEmployeeByRegisterNumber();
                             break;
                         case 9:
-                            company.IncreaseCostPjEmployee();
+                            company.ShowMonthlyCostEmployee();
                             break;
                     }
                 }

@@ -39,9 +39,25 @@ namespace CheckPoint.Models
             return HourValue * (ContractedHours + ExtraHours);
         }
 
+        public decimal CalcPerMonthNoExtraHours()
+        {
+            if (HourValue < 0 || ContractedHours < 0)
+            {
+                throw new NegativeValueException($"NegativeValueException: {HourValue} || {ContractedHours}");
+            }
+            //return (HourValue * ExtraHours) + (HourValue * ExtraHours);
+            return HourValue * ContractedHours;
+        }
+
         public override decimal AddPercent(decimal increasePercent)
         {
             HourValue += HourValue * (increasePercent / 100);
+            return HourValue;
+        }
+
+        public decimal AddValue(decimal increaseValue)
+        {
+            HourValue += increaseValue;
             return HourValue;
         }
     }

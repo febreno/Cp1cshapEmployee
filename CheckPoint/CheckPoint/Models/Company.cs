@@ -28,7 +28,7 @@ namespace CheckPoint.Models
         {
             PjEmployee pj1 = new PjEmployee(GenerateRegistryNumber(), "Lucas Albert", Gender.Male, EmployeeType.Pj, 60m, 5, 1, "222");
             PjEmployee pj2 = new PjEmployee(GenerateRegistryNumber(), "José Marreta", Gender.Male, EmployeeType.Pj, 50m, 7, 0, "222");
-            CltEmployee clt1 = new CltEmployee(GenerateRegistryNumber(), "Ana Nicolet", Gender.Female, EmployeeType.Clt, 10m, true);
+            CltEmployee clt1 = new CltEmployee(GenerateRegistryNumber(), "Ana Nicolet", Gender.Female, EmployeeType.Clt, 1000m, true);
             CltEmployee clt2 = new CltEmployee(GenerateRegistryNumber(), "Clebber Aniston", Gender.Male, EmployeeType.Clt, 1800m, true);
 
             Employees.Add(pj1);
@@ -89,7 +89,7 @@ namespace CheckPoint.Models
                     Console.WriteLine($"TrustPosition: {clt.TrustPosition}\n");
                 }
 
-                typeAccount = e.EmployeeType;
+                typeAccount = EmployeeType.Clt;
             }
             if (Employees.Count == 0 || typeAccount != EmployeeType.Clt)
             {
@@ -114,7 +114,7 @@ namespace CheckPoint.Models
                     Console.WriteLine($"ExtraHours: {pj.ExtraHours}");
                     Console.WriteLine($"CnpjCompany: {pj.CnpjCompany}\n");
                 }
-                typeAccount = e.EmployeeType;
+                typeAccount = EmployeeType.Pj;
             }
             if (Employees.Count == 0 || typeAccount != EmployeeType.Pj)
             {
@@ -123,7 +123,7 @@ namespace CheckPoint.Models
             }
 
         }
-        public void ShowMonthlyCostofEmployees()//5
+        public void ShowMonthlyCostfEmployees()//5
         {
             if (Employees.Count == 0)
             {
@@ -132,7 +132,14 @@ namespace CheckPoint.Models
             decimal result = 0m;
             foreach (var e in Employees)
             {
-                result += e.CalcPerMonth();
+                if (e is CltEmployee clt)
+                {
+                    result += clt.CalcPerMonth();
+                }
+                if (e is PjEmployee pj)
+                {
+                    result += pj.CalcPerMonthNoExtraHours();
+                }
             }
             Console.WriteLine($"ShowMonthlyCostofEmployees: {result}\n");
 
@@ -156,7 +163,7 @@ namespace CheckPoint.Models
                     Console.WriteLine($"Gender: {e.Gender}");
                     Console.WriteLine($"EmployeeType: {e.EmployeeType}");
 
-                    Console.WriteLine($"ExtraHours: {clt.Salary}");
+                    Console.WriteLine($"Salary: {clt.Salary}");
                     Console.WriteLine($"TrustPosition: {clt.TrustPosition}\n");
 
                     //increase percent
@@ -164,7 +171,7 @@ namespace CheckPoint.Models
                     //decimal finalSalary = e.AddPercent(percent);
 
                     Console.WriteLine($"Final Salary: {finalSalary}");
-                    typeAccount = e.EmployeeType;
+                    typeAccount = EmployeeType.Clt;
                 }
             }
             if (Employees.Count == 0 || typeAccount != EmployeeType.Clt)
@@ -180,44 +187,36 @@ namespace CheckPoint.Models
             Console.WriteLine("Registry account:");
             var RegistryNumber = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Percent in % to increase:");
-            var percent = decimal.Parse(Console.ReadLine()); // Use decimal instead of int for percentages
+            Console.WriteLine("Value to increase:");
+            var value = decimal.Parse(Console.ReadLine()); // Use decimal instead of int for percentages
 
             var typeAccount = EmployeeType.Clt;
 
             foreach (var e in Employees)
             {
 
-                if (e.RegistryNumber == RegistryNumber && e.EmployeeType == EmployeeType.Pj)
+                if (e.RegistryNumber == RegistryNumber && e is PjEmployee pj)
                 {
-                    if (e is PjEmployee pj)
-                    {
-                        Console.WriteLine($"{pj.HourValue} += {pj.HourValue} * {percent} / 100\n");
-                        Console.WriteLine($"Register: {e.RegistryNumber}");
-                        Console.WriteLine($"Name: {pj.Name}");
-                        Console.WriteLine($"HourValue: {pj.HourValue}");
-                        Console.WriteLine($"Gender: {pj.Gender}");
-                        Console.WriteLine($"EmployeeType: {pj.EmployeeType}");
-                        Console.WriteLine($"CalcPerMonth: {pj.CalcPerMonth()}\n");
+                    Console.WriteLine($"Hour Value: {pj.HourValue} += {pj.HourValue} + {value}");
+                    Console.WriteLine($"CalcPerMonth: {pj.CalcPerMonth()}");
 
-                        //increase percent
-                        decimal finalSalary = pj.AddPercent(percent);
-                        typeAccount = pj.EmployeeType;
-                        Console.WriteLine($"Hour Value: {finalSalary}");
-                        
-                    }
+                    //increase value
+                    decimal finalSalary = pj.AddValue(value);
+                    typeAccount = EmployeeType.Pj;
+                    Console.WriteLine($"CalcPerMonth FINAL: {pj.CalcPerMonth()}");
+                    Console.WriteLine($"Hour Value: {finalSalary}\n");
+                }
+            }
 
-                }
-                if (Employees.Count == 0 || typeAccount != EmployeeType.Pj)
-                {
-                    Console.WriteLine("Employees list is empty or different account type\n");
-                    return;
-                }
+            if (Employees.Count == 0 || typeAccount != EmployeeType.Pj)
+            {
+                Console.WriteLine("Employees list is empty or different account type\n");
+                return;
             }
 
 
         }
-        public void SerachPjEmployeeByRegisterNumber()//8
+        public void SerachEmployeeByRegisterNumber()//8
         {
             Console.WriteLine("Registry account:");
             var RegistryNumber = int.Parse(Console.ReadLine());
@@ -225,23 +224,52 @@ namespace CheckPoint.Models
             if (Employees.Count == 0)
             {
                 Console.WriteLine("Employees list is empty");
+                return;
             }
 
             foreach (var e in Employees)
             {
 
-                if (e.RegistryNumber == RegistryNumber && e.EmployeeType == EmployeeType.Pj)
+                if (e.RegistryNumber == RegistryNumber && e is CltEmployee clt)
                 {
-                    if (e is PjEmployee pj)
-                    {
-                        Console.WriteLine($"Register: {pj.RegistryNumber}");
-                        Console.WriteLine($"Name: {pj.Name}");
-                        Console.WriteLine($"Name: {pj.HourValue}");
-                        Console.WriteLine($"Gender: {pj.Gender}");
-                        Console.WriteLine($"Employee Type: {pj.EmployeeType}");
-                        Console.WriteLine($"Current Salary: {pj.CalcPerMonth()}\n");
-                    }
+                    Console.WriteLine($"Register: {e.RegistryNumber}");
+                    Console.WriteLine($"Name: {e.Name}");
+                    Console.WriteLine($"Gender: {e.Gender}");
+                    Console.WriteLine($"EmployeeType: {e.EmployeeType}");
 
+                    Console.WriteLine($"Salary: {clt.Salary}");
+                    Console.WriteLine($"TrustPosition: {clt.TrustPosition}\n");
+                }
+                if (e.RegistryNumber == RegistryNumber && e is PjEmployee pj)
+                {
+                    Console.WriteLine($"Register: {pj.RegistryNumber}");
+                    Console.WriteLine($"Name: {pj.Name}");
+                    Console.WriteLine($"Name: {pj.HourValue}");
+                    Console.WriteLine($"Gender: {pj.Gender}");
+                    Console.WriteLine($"Employee Type: {pj.EmployeeType}");
+                    Console.WriteLine($"Current Salary: {pj.CalcPerMonth()}\n");
+                }
+            }
+        }
+        public void ShowMonthlyCostEmployee()//9
+        {
+            if (Employees.Count == 0)
+            {
+                Console.WriteLine("Employees list is empty");
+            }
+            Console.WriteLine("Registry account:");
+            var registryNumber = int.Parse(Console.ReadLine());
+
+            decimal result = 0m;
+            foreach (var e in Employees)
+            {
+                if (e.RegistryNumber == registryNumber && e is CltEmployee clt)
+                {
+                    Console.WriteLine($"Clt CalcPerMonth: {clt.CalcPerMonth()}");
+                }
+                if (e.RegistryNumber == registryNumber &&  e is PjEmployee pj)
+                {
+                    Console.WriteLine($"Pj CalcPerMonth: {pj.CalcPerMonth()}");
                 }
             }
         }
